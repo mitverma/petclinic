@@ -1,18 +1,37 @@
 import { Component } from '@angular/core';
+import { CommonService } from './common.service';
+import { NavController, MenuController } from '@ionic/angular';
+import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  getUserData: any;
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'Dashboard', url: '/dashboard', icon: 'apps-outline' },
+    { title: 'Profile', url: '/profile', icon: 'person-outline' },
+    { title: 'Patient List', url: '/patientlist', icon: 'list-outline' },
+    { title: 'Add Patient', url: '/addpatient', icon: 'person-add-outline' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  constructor(private commonService: CommonService, private navCtrl: NavController, private menu: MenuController, private firestore: AngularFirestore) {}
+
+  ngOnInit(){
+    console.log(this.firestore, 'firestore');
+    this.getUserData = this.commonService.getLoggedInUserData();
+    if(this.getUserData && this.getUserData.id){
+      this.navCtrl.navigateRoot('/dashboard');
+    }
+  }
+  ngDoCheck(){
+    this.getUserData = this.commonService.getLoggedInUserData();
+  }
+
+  logout(){
+    sessionStorage.removeItem('userData');
+    this.menu.close();
+    this.navCtrl.navigateRoot('/login');
+  }
 }

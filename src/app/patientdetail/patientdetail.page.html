@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar class="header-background">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>Patient Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-label class="header-label">
+        Note : <ion-note> File Size should not be more than 1MB</ion-note>
+    </ion-label>
+    <div class="upload-profile">
+        <div class="profile-pic-holder" (click)="openActionSheet()">
+            <img [src]="fileName" alt="" class="">
+          </div>
+          <div class="icon-add">
+            <img src="/assets/images/camera.png" alt="">
+          </div>
+    </div>
+  <ion-card class="pateint-detail">
+    <ion-label class="header-label">Patient Details</ion-label>
+    <ion-list>
+        <form [formGroup]="patientDetailForm">
+            <ion-item>
+                <ion-label  position="floating">Owner Name</ion-label>
+                <ion-input type="text" name="ownerName" formControlName="ownerName"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label  position="floating">Contact Number</ion-label>
+                <ion-input type="tel" name="contactnumber" formControlName="contactNo" maxlength="10" minlength="8"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label  position="floating">Email Id</ion-label>
+                <ion-input type="email" name="emailid" formControlName="emailId"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label  position="floating">Pet Name</ion-label>
+                <ion-input type="text" name="petname" formControlName="petName"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label  position="floating">Breed Type</ion-label>
+                <ion-input type="text" name="breedType" formControlName="petBreedType"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label  position="floating">Medicine Prescription</ion-label>
+                <ion-textarea type="text" name="prescription" formControlName="medicinePrescription"></ion-textarea>
+            </ion-item>
+        </form>
+      </ion-list>
+      <div class="text-center button-holder">
+          <button class="btn-yellow btn btn-full " (click)="savePatientDetail(patientDetailForm);">Save</button>
+      </div>
+    </ion-card>
+    <ion-card>
+      <ion-label class="header-label">Previous Visits
+          <ion-icon class="share" slot="end" name="share-social-outline" (click)="openShare();"></ion-icon>
+      </ion-label>
+      
+      <ion-list>
+        <ion-item *ngFor="let list of pateintVisitData">
+          <!-- <ion-avatar slot="end">
+            <span>{{list.visitDate}}</span>       
+          </ion-avatar> -->
+          <ion-note slot="end">{{list.visitDate}}</ion-note>
+          <ion-label>
+            <p>{{list.medicinePrescription}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+  </ion-card>
+</ion-content>

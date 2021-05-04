@@ -24,3 +24,72 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+@import url(https://use.fontawesome.com/releases/v5.7.2/css/all.css); 
+// @import url(https://fonts.googleapis.com/css?family=Lato); 
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans); 
+// @import "../font-awesome.css"; 
+
+body {
+    // font-family: 'Lato', sans-serif;
+    font-family: 'Josefin Sans', sans-serif !important;
+    ion-app.md {
+        // font-family: 'Lato', sans-serif;
+        font-family: 'Josefin Sans', sans-serif !important;
+    }
+}
+
+* {
+    font-family: 'Josefin Sans', sans-serif !important; 
+}
+
+/*colors*/
+$color-button : #daaa2c;
+$color-black: #000;
+$color-white: #fff;
+/*$color-brown: #a77c09;*/
+// $color-brown: #c18d00;
+$color-yellow: #ffbc41;
+// $color-brown: #daaa2c;
+$color-greenblack: #292f28;
+$color-darkgrey: gray;
+/*colors end*/
+
+// #5a450d brown wala
+
+/*classes*/
+.btn-yellow {
+    padding: 12px 40px 10px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: $color-yellow;
+    color: $color-black;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    &:hover:not(.disable-hover) {
+        background-color: $color-yellow;
+        color: $color-black;
+    }
+}
+
+.btn-round {
+    border-radius: 25px;
+}
+.btn-full {
+    width: 100%;
+}
+.btn-half-width {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.header-background {
+    --background: #ffbc41;
+    font-family: 'Josefin Sans', sans-serif !important;
+}

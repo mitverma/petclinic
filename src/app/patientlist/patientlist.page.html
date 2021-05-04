@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar class="header-background">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>Patients</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchItem" (ionInput)="filterData($event)" animated="true"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let list of filteredPatientList">
+      <ion-avatar slot="start">
+        <img [src]="list.profilePic" *ngIf="list.profilePic">
+        <ion-icon *ngIf="!list.profilePic" name="person-circle-outline" size="large"></ion-icon>        
+      </ion-avatar>
+      <ion-label (click)="viewPatientDetails(list)">
+        <h2>{{list.ownerName}}</h2>
+        <h4>{{list.contactNo}}</h4>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

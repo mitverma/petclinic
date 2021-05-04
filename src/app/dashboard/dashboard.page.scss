@@ -1,0 +1,12 @@
+.card-view {
+    margin-top: 25px;
+    background: url('../../assets/images/circle.svg') no-repeat #ffbc41 100% 0;
+    background-size: contain;
+    .item {
+        min-height: 120px;
+        --background: transparent !important;
+    } 
+    ion-label {
+        font-size: 20px;
+    }
+}

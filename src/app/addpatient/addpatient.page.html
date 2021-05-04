@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar class="header-background">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>Add Patient</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+        <ion-label class="header-label">
+                Note : <ion-note> File Size should not be more than 1MB</ion-note>
+            </ion-label>
+  <div class="upload-profile">
+      <div class="profile-pic-holder" (click)="openActionSheet()">
+          <img [src]="fileName" alt="" class="">
+        </div>
+        <div class="icon-add">
+          <img src="/assets/images/camera.png" alt="">
+        </div>
+  </div>
+    
+          <ion-list class="patient-add">
+              <form [formGroup]="patientDetail">
+                  <ion-item>
+                      <ion-label  position="floating">Owner Name</ion-label>
+                      <ion-input type="text" name="ownerName" formControlName="ownerName"></ion-input>
+                  </ion-item>
+                  
+                  <ion-item>
+                      <ion-label  position="floating">Contact Number</ion-label>
+                      <ion-input type="tel" name="contactnumber" formControlName="contactNo" maxlength="10" minlength="8"></ion-input>
+                  </ion-item>
+      
+                  <ion-item>
+                      <ion-label  position="floating">Email Id</ion-label>
+                      <ion-input type="email" name="emailid" formControlName="emailId"></ion-input>
+                  </ion-item>
+      
+                  <ion-item>
+                      <ion-label  position="floating">Pet Name</ion-label>
+                      <ion-input type="text" name="petname" formControlName="petName"></ion-input>
+                  </ion-item>
+      
+                  <ion-item>
+                      <ion-label  position="floating">Breed Type</ion-label>
+                      <ion-input type="text" name="breedType" formControlName="petBreedType"></ion-input>
+                  </ion-item>
+      
+                  <ion-item>
+                      <ion-label  position="floating">Medicine Prescription</ion-label>
+                      <ion-textarea type="text" name="prescription" formControlName="medicinePrescription"></ion-textarea>
+                  </ion-item>
+              </form>
+              <div class="text-center button-holder">
+                  <button class="btn-yellow btn btn-full " (click)="addPatient(patientDetail);">Add &amp; Save</button>
+              </div>
+            </ion-list>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar class="header-background">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-label class="header-label">
+        Note : <ion-note> File Size should not be more than 1MB</ion-note>
+    </ion-label>
+  <form [formGroup]="profileForm">
+      <div class="upload-profile">
+          <div class="profile-pic-holder" (click)="openActionSheet()">
+              <img [src]="fileName" alt="" class="">
+            </div>
+            <div class="icon-add">
+              <img src="/assets/images/camera.png" alt="">
+            </div>
+      </div>
+      <!-- <button class="btn btn-yellow" (click)="openActionSheet();">Open Sheet</button> -->
+      <ion-list class="profile-detail">
+          <ion-item>
+            <ion-label  position="floating">Fullname *</ion-label>
+            <ion-input type="text" name="Fullname" formControlName="fullname"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label  position="floating">Mobile *</ion-label>
+            <ion-input type="number" name="registerNumber" formControlName="mobileNo" disabled></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label  position="floating">Email-Id *</ion-label>
+            <ion-input type="email" name="emailId" formControlName="emailId" disabled></ion-input>
+          </ion-item>
+        </ion-list>
+        <div class="text-center button-holder">
+            <button class="btn-yellow btn btn-full " (click)="saveProfile(profileForm);">Save</button>
+        </div>
+  </form>
+</ion-content>

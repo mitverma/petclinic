@@ -1,0 +1,33 @@
+.logo-section {
+    padding: 2rem 0;
+    text-align: center;
+     img {
+         width: 150px;
+     }
+}
+
+.login-form, .register-form {
+    .item-input {
+        margin-bottom: 20px;
+    }
+    .label-floating {
+        color: #999;
+    }
+    .item-has-value, .item-has-focus {
+        --highlight-background : #ffbc41;
+        .label-floating {
+            color: #ffbc41;
+        }
+    }
+    .item-has-value.ion-invalid {
+        --highlight-background :#eb445a ;
+    }
+}
+
+.form-info {
+    text-align: center;
+    span {
+        color: #ffbc41;
+        font-weight: 700;
+    }
+}

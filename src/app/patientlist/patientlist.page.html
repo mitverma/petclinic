@@ -21,4 +21,7 @@
       </ion-label>
     </ion-item>
   </ion-list>
+  <ng-container *ngIf="filteredPatientList && filteredPatientList.length == 0" >
+    <p class="ion-text-center">No Data Found !</p>
+  </ng-container>
 </ion-content>

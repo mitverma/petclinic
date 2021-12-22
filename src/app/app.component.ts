@@ -23,6 +23,8 @@ export class AppComponent {
     this.getUserData = this.commonService.getLoggedInUserData();
     if(this.getUserData && this.getUserData.id){
       this.navCtrl.navigateRoot('/dashboard');
+    }else {
+      this.menu.enable(false);
     }
   }
   ngDoCheck(){

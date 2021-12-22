@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommonService } from '../common.service';
-import { NavController } from '@ionic/angular';
+import { NavController, MenuController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 
@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
   isLoginView: boolean = true;
   jsonLocalDb: any;
   getUsers: any;
-  constructor(private commonService: CommonService, private navCtrl: NavController, private firestore: AngularFirestore) {
+  constructor(private commonService: CommonService, private navCtrl: NavController, private firestore: AngularFirestore, private menu: MenuController) {
     this.loginForm = new FormGroup({
       mobileNo: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
@@ -56,6 +56,7 @@ export class LoginPage implements OnInit {
         if(isUserPresent){
           this.commonService.setUserData(isUserPresent);
           this.navCtrl.navigateRoot('/dashboard');
+          this.menu.enable(true);
         }else {
           this.commonService.toastMessage('User not found. Please enter valid details');
         }
@@ -94,6 +95,7 @@ export class LoginPage implements OnInit {
             userRegisteredData['fireBaseId'] = response.id;
             this.commonService.setUserData(userRegisteredData);
             this.navCtrl.navigateRoot('/dashboard');
+            this.menu.enable(true);
           });
 
           // this.commonService.insertUser(userRegisteredData);

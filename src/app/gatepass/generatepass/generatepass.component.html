@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar class="header-background-pass">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>Generate Pass</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+        <ion-label class="header-label">
+          Note : <ion-note> File Size should not be more than 5MB</ion-note>
+        </ion-label>
+  <div class="upload-profile">
+      <div class="profile-pic-holder" (click)="openActionSheet()">
+          <img [src]="fileBaseView" alt="" class="">
+        </div>
+        <div class="icon-add">
+          <img src="/assets/images/camera.png" alt="">
+        </div>
+  </div>
+    
+          <ion-list class="visitor-add">
+              <form [formGroup]="passDetail">
+                  <ion-item>
+                      <ion-label  position="floating">Visitor Name</ion-label>
+                      <ion-input type="text" formControlName="visitorName"></ion-input>
+                  </ion-item>
+                  
+                  <ion-item>
+                      <ion-label  position="floating">Contact Number</ion-label>
+                      <ion-input type="tel" formControlName="contactNo" maxlength="10" minlength="8"></ion-input>
+                  </ion-item>
+      
+                  <ion-item>
+                      <ion-label  position="floating">Email Id</ion-label>
+                      <ion-input type="email" formControlName="emailId"></ion-input>
+                  </ion-item>
+      
+                  <ion-item>
+                      <ion-label  position="floating">Department</ion-label>
+                      <ion-input type="text"  formControlName="department"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label  position="floating">Pass Type</ion-label>
+                      <ion-textarea type="text"  formControlName="passType"></ion-textarea>
+                  </ion-item>
+              </form>
+              <div class="text-center button-holder">
+                  <button class="btn-blue btn btn-full " (click)="generatePass(passDetail);">Generate Pass</button>
+              </div>
+              <!-- <div class="text-center button-holder" *ngIf="viewPass">
+                  <button class="btn-blue btn btn-full " (click)="viewPassData();">View Pass</button>
+              </div> -->
+            </ion-list>
+</ion-content>

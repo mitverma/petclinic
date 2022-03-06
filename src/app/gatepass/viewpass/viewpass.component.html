@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar class="header-background-pass">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/dashboardPass"></ion-back-button>
+        </ion-buttons>
+    <ion-title>View Pass</ion-title>
+  </ion-toolbar>
+  <ion-content class="view-pass">
+    <div class="pass-image" [ngStyle]="{'background-image': 'url('+passData?.fullImage+')'}"></div>
+      <div class="pass-info">
+        <ul>
+          <li><span class="title">Name</span><span class="seprator">:</span><span class="title-info">  {{passData?.visitorName}}</span></li>
+          <li><span class="title">Email Id</span><span class="seprator">:</span><span class="title-info">  {{passData?.emailId}}</span></li>
+          <li><span class="title">Contact No</span><span class="seprator">:</span><span class="title-info"> {{passData?.contactNo}}</span></li>
+          <li><span class="title">Department</span><span class="seprator">:</span><span class="title-info"> {{passData?.department}}</span></li>
+          <li><span class="title">Date</span><span class="seprator">:</span><span class="title-info">  {{passData?.currentDate}}</span></li>
+        </ul>
+      </div>
+      <div class="share-btn-wrapper">
+        <button class="btn-blue btn btn-full" (click)="share();">Share</button>
+      </div>
+    <!-- <table>
+      <thead>
+        <th>Gate Pass 1 Day</th>
+        {{passData | json}}
+      </thead>
+      <tbody>
+        <td colspan="3">
+          <img [src]="passData?.fullImage" alt="">
+        </td>
+      </tbody>
+    </table> -->
+  </ion-content>
+</ion-header>

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar class="header-background-pass">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchItem" (ionInput)="filterData($event)" animated="true"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let list of filteredUsersList">
+      <ion-avatar slot="start">
+        <img [src]="list.profilePic" *ngIf="list.profilePic">
+        <ion-icon *ngIf="!list.profilePic" name="person-circle-outline" size="large"></ion-icon>        
+      </ion-avatar>
+      <ion-label (click)="viewUserPass(list)">
+        <h2>{{list.visitorName}}</h2>
+        <h4>{{list.contactNo}}</h4>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ng-container *ngIf="filteredUsersList && filteredUsersList.length == 0" >
+    <p class="ion-text-center">No Data Found !</p>
+  </ng-container>
+</ion-content>

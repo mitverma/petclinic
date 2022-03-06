@@ -1,0 +1,46 @@
+.view-pass {
+    min-height: calc(100vh - 60px);
+}
+
+.pass-image {
+    width: 250px;
+    height: 250px;
+    margin: 25px auto;
+    border: 1px solid #aeaeae;
+    box-shadow: 0px 1px 3px #aeaeae;
+    border-radius: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.pass-info {
+    padding: 15px 15px 0;
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li {
+            margin: 0 0 10px;
+            > span:first-child {
+                min-width: 150px;
+                width: 50%;
+                display: inline-block;
+            }
+            .seprator {
+                display: inline-block;
+                margin: 0 5px;
+            }
+            .title-info {
+                width: 46%;
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+    }
+}
+
+.share-btn-wrapper {
+    padding: 0 15px;
+    margin: 30px 0 0;
+}

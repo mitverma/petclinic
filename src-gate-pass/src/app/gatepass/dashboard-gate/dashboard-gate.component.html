@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar class="header-background-pass">
+      <!-- <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons> -->
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="logo-wrapper">
+    <img src="assets/id-card-logo.svg" alt="Fate Pass" class="img-fluid">
+  </div>
+  <ion-card class="card-view" (click)="openPage('/generatepass')">
+      <ion-item lines="none">
+          <ion-icon name="person-add-outline" slot="end" size="large"></ion-icon>
+        <ion-label>Generate Pass</ion-label>
+      </ion-item>
+  </ion-card>
+    <ion-card class="card-view" (click)="openPage('/users')">
+        <ion-item lines="none">
+          <ion-icon name="list-outline" slot="end" size="large"></ion-icon>
+          <ion-label>Visitor List</ion-label>
+        </ion-item>
+      </ion-card>
+</ion-content>

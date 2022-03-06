@@ -19,19 +19,19 @@ export class AppComponent {
   constructor(private commonService: CommonService, private navCtrl: NavController, private menu: MenuController, private firestore: AngularFirestore) {}
 
   ngOnInit(){
-    console.log(this.firestore, 'firestore');
-    this.getUserData = this.commonService.getLoggedInUserData();
-    if(this.getUserData && this.getUserData.id){
-      this.navCtrl.navigateRoot('/dashboard');
-    }
+    // console.log(this.firestore, 'firestore');
+    // this.getUserData = this.commonService.getLoggedInUserData();
+    // if(this.getUserData && this.getUserData.id){
+    //   this.navCtrl.navigateRoot('/dashboard');
+    // }
   }
   ngDoCheck(){
-    this.getUserData = this.commonService.getLoggedInUserData();
+    // this.getUserData = this.commonService.getLoggedInUserData();
   }
 
   logout(){
-    sessionStorage.removeItem('userData');
-    this.menu.close();
-    this.navCtrl.navigateRoot('/login');
+    // sessionStorage.removeItem('userData');
+    // this.menu.close();
+    // this.navCtrl.navigateRoot('/login');
   }
 }
